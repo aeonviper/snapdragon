@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Guice iBatis Integration Test Suite" verbose="1" parallel="true" threadCount="5">
+
+<test name="ItemService Tests">
+<classes>
+    <class name="core.test.testng.Parallel"/>
+</classes>
+</test>
+
+</suite>

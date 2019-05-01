@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings useStatementNamespaces="true"/>
+	<typeHandler javaType="org.joda.time.DateTime" callback="core.type.DateTimeTypeHandlerCallback"/>
+	<transactionManager type="JDBC" commitRequired="true">
+		<dataSource type="DBCP">
+			<property name="JDBC.Driver" value="org.postgresql.Driver"/>
+			<property name="JDBC.ConnectionURL"
+				value="jdbc:postgresql://127.0.0.1:5432/aricia"/>
+			<property name="JDBC.Username" value="tester"/>
+			<property name="JDBC.Password" value="tester"/>
+		</dataSource>
+	</transactionManager>	
+	<sqlMap resource="core/test/config/Item.xml"/>
+</sqlMapConfig>

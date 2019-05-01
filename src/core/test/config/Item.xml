@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Item">
+    <typeAlias alias="Item" type="core.test.model.Item"/>
+        
+    <select id="list" resultClass="Item">
+        select * from Item order by id asc
+    </select>
+        
+    <select id="get" resultClass="Item" parameterClass="Long">
+        select * from Item where id = #value#
+    </select>
+    
+    <insert id="insert" parameterClass="Item">
+        insert into Item (
+                id, name, value, version
+        ) values (
+                #id#,#name#,#value#,#version#
+        )
+    </insert>
+    
+    <delete id="delete" parameterClass="Item">
+        delete from Item where id = #id#
+    </delete>
+    
+    <update id="update" parameterClass="Item">
+        update Item set 
+            name = #name#,
+            value = #value#,
+            version = #version#
+        where 
+            id = #id#
+    </update>
+                
+    <delete id="deleteAll">
+        delete from Item
+    </delete>
+        
+    
+        
+    <select id="find" resultClass="Item" parameterClass="Long">
+        select * from Item where id = #value#
+    </select>
+    
+    <delete id="remove" parameterClass="Long">
+        delete from Item where id = #value#
+    </delete>
+        
+        
+    <select id="getByName" resultClass="Item" parameterClass="String">
+        select * from Item where name = #value#
+    </select>
+        
+    <select id="getByValue" resultClass="Item" parameterClass="String">
+        select * from Item where value = #value#
+    </select>
+        
+    <insert id="insertWithCreated" parameterClass="Item">
+        insert into Item (
+                id, name, value, version, created
+        ) values (
+                #id#,#name#,#value#,#version#,#created#
+        )
+    </insert>
+        
+    <update id="updateWithCreated" parameterClass="Item">
+        update Item set 
+            name = #name#,
+            value = #value#,
+            version = #version#,
+            created = #created#
+        where 
+            id = #id#
+    </update>
+        
+</sqlMap>
